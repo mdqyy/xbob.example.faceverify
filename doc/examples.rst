@@ -82,13 +82,13 @@ After training, the model and probe images are loaded, linearized, and projected
   ...   probe_image = bob.io.load(filename)
   ...   probe_feature = pca_machine(probe_image.flatten())
 
-To compute the verification result, each model feature is compared to each probe feature by computing the Euclidean distance:
+To compute the verification result, each model feature is compared to each probe feature by computing the negative Euclidean distance:
 
 .. code-block:: python
 
   >>> for model_feature in model_features:
   ...  for probe_feature in probe_features:
-  ...    score = bob.math.euclidean_distance(model_feature, probe_feature)
+  ...    score = - bob.math.euclidean_distance(model_feature, probe_feature)
 
 The results are divided into a list of positive scores (model and probe are from the same identity) and a a list of negative scores (identities of model and probe differ).
 Using these lists, the ROC curve is plotted:
@@ -107,12 +107,12 @@ and the performance is computed:
   >>> threshold = bob.measure.eer_threshold(negatives, positives)
   >>> FAR, FRR = bob.measure.farfrr(negatives, positives, threshold)
 
-The expected result is: FAR 83.6% and FRR 83.6% at distance threshold 2048.9
+The expected result is: FAR 16.4% and FRR 16.4% at distance threshold 2048.9
 
 .. note::
 
-  Computing eigenfaces with such a low amount of training data is usually not an excellent idea.
-  Hence, the performance in this example is extremely poor.
+  Computing eigenfaces with a low amount of training data is usually not an excellent idea.
+  Hence, the performance in this example is relatively poor.
 
 
 Gabor jet comparisons
