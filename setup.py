@@ -28,9 +28,9 @@ setup(
     # This is the basic information about your project. Modify all this
     # information before releasing code publicly.
     name='bob.example.faceverify',
-    version='0.3.2',
+    version='0.3.3',
     description='Example for using Bob to create face verification systems',
-    url='http://pypi.python.org/pypi/bob.example.faceverify',
+    url='http://pypi.python.org/pypi/xbob.example.faceverify',
     license='GPLv3',
     author='Manuel Guenther',
     author_email='manuel.guenther@idiap.ch',
@@ -38,7 +38,7 @@ setup(
     long_description=open('README.rst').read(),
 
     # This line is required for any distutils based packaging.
-    packages=find_packages(),
+    packages=[''],
     include_package_data=True,
     zip_safe=True,
 

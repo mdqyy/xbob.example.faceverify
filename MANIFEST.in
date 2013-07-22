@@ -1,6 +1,2 @@
 include README.rst
-include bootstrap.py
-include buildout.cfg
-recursive-include doc *.rst *.png conf.py
-include testdata/*
-
+exclude *.py
